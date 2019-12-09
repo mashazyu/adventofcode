@@ -10,7 +10,7 @@ while (counter <= max) {
   numberOfValidPasswords = Password.shouldMeetCriteria(counter.toString(), min, max) ?
     numberOfValidPasswords +=1 :
     numberOfValidPasswords
-
+    
   counter +=1
 }
 
