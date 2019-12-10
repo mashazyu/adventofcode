@@ -10,7 +10,10 @@ require.extensions['.txt'] = function (module, filename) {
 const orbitArray = require("./input.txt").split('\n')
 
 const orbitMap = Map.createNewMap(orbitArray)
-
 const orbitTree = new Tree.Tree(orbitMap)
 const totalAmountOfOrbits = Map.countOrbits(orbitTree)
+
 console.log('/// total amount of oribits is:  ', totalAmountOfOrbits)
+
+const shortestRoute = Map.getShortestRoute(orbitTree, 'YOU', 'SAN')
+console.log('/// the shortest route between YOU and SAN is: ', shortestRoute)

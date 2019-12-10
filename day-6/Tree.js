@@ -49,12 +49,28 @@ class Tree {
         return node
       }
     })
-    const currentDepth = depth + 1
 
     if (parent) {
-      return this.getBranchDepth(parent.id, currentDepth)
+      return this.getBranchDepth(parent.id, depth +1)
     } else {
-      return currentDepth
+      return depth +1
+    }
+  }
+
+  getBranchRoute(leaf, route=[]) {
+    const parent = this.nodes.find(node => {
+      if (node.children.some(child => child === leaf)) {
+        return node
+      }
+    })
+
+    const newRoute = [...route]
+    newRoute.push(leaf)
+
+    if (parent) {
+      return this.getBranchRoute(parent.id, newRoute)
+    } else {
+      return newRoute
     }
   }
 
